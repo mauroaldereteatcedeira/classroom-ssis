@@ -1,0 +1,715 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/17/2023 1:34:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PC"
+  DTS:CreatorName="PC\Mauro"
+  DTS:DTSID="{1C98B4C3-0911-4937-ACF5-8449D2CA9759}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5209.0"
+  DTS:LocaleID="11274"
+  DTS:ObjectName="FIFA"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{7880F27B-78A2-4E5A-B441-9E2478C41335}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PC.SSIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0EB0933C-1491-4C2E-990B-2F72E1BC4400}"
+      DTS:ObjectName="PC.SSIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=PC;Initial Catalog=SSIS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Exportar tabla FIFA"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9E353BF6-425E-45D1-B831-FFE61B80DD32}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Exportar tabla FIFA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Exportar tabla FIFA\FIFA Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="FIFA Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FIFA Destination]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Exportar tabla FIFA\FIFA Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PC.SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[PC.SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nombre]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[NombreCompleto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="NombreCompleto"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreCompleto]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[NombreCompleto]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[Club]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Club"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Club]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Club]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[Liga]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Liga"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Liga]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Liga]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[FechaNacimiento]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaNacimiento"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[AlturaCM]"
+                      cachedDataType="i4"
+                      cachedName="AlturaCM"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlturaCM]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[AlturaCM]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[PesoKG]"
+                      cachedDataType="i4"
+                      cachedName="PesoKG"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[PesoKG]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[PesoKG]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[Nacionalidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nacionalidad"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nacionalidad]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Nacionalidad]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[ValorEuropa]"
+                      cachedDataType="r8"
+                      cachedName="ValorEuropa"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValorEuropa]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[ValorEuropa]" />
+                    <inputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].Columns[PiePreferido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PiePreferido"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[PiePreferido]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[PiePreferido]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="NombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Club" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Liga" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[AlturaCM]"
+                      dataType="i4"
+                      name="AlturaCM" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[PesoKG]"
+                      dataType="i4"
+                      name="PesoKG" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValorEuropa]"
+                      dataType="r8"
+                      name="ValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input].ExternalColumns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PiePreferido" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportar tabla FIFA\FIFA Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportar tabla FIFA\FIFA Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="FIFA Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FIFA]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Exportar tabla FIFA\FIFA Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PC.SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[PC.SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      length="50"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[NombreCompleto]"
+                      length="150"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[NombreCompleto]"
+                      name="NombreCompleto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Club]"
+                      length="100"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Club]"
+                      name="Club"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Liga]"
+                      length="100"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Liga]"
+                      name="Liga"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                      name="FechaNacimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[AlturaCM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[AlturaCM]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[AlturaCM]"
+                      name="AlturaCM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[PesoKG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[PesoKG]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[PesoKG]"
+                      name="PesoKG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Nacionalidad]"
+                      length="100"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[Nacionalidad]"
+                      name="Nacionalidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[ValorEuropa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[ValorEuropa]"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[ValorEuropa]"
+                      name="ValorEuropa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[PiePreferido]"
+                      length="50"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].Columns[PiePreferido]"
+                      name="PiePreferido"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="NombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Club" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Liga" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[AlturaCM]"
+                      dataType="i4"
+                      name="AlturaCM" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[PesoKG]"
+                      dataType="i4"
+                      name="PesoKG" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[ValorEuropa]"
+                      dataType="r8"
+                      name="ValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output].ExternalColumns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PiePreferido" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[NombreCompleto]"
+                      name="NombreCompleto" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Club]"
+                      name="Club" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Liga]"
+                      name="Liga" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                      name="FechaNacimiento" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[AlturaCM]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[AlturaCM]"
+                      name="AlturaCM" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[PesoKG]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[PesoKG]"
+                      name="PesoKG" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[Nacionalidad]"
+                      name="Nacionalidad" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ValorEuropa]"
+                      dataType="r8"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ValorEuropa]"
+                      name="ValorEuropa" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[PiePreferido]"
+                      name="PiePreferido" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Exportar tabla FIFA.Paths[OLE DB Source Output]"
+              endId="Package\Exportar tabla FIFA\FIFA Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Exportar tabla FIFA\FIFA Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Exportar tabla FIFA"
+          TopLeft="427,234" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Exportar tabla FIFA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Exportar tabla FIFA\FIFA Source"
+          TopLeft="268,212" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Exportar tabla FIFA\FIFA Destination"
+          TopLeft="484,448" />
+        <EdgeLayout
+          Id="Package\Exportar tabla FIFA.Paths[OLE DB Source Output]"
+          TopLeft="338.5,254">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226,194"
+              Start="0,0"
+              End="226,186.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,93" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,93"
+                    Point2="0,97"
+                    Point3="4,97" />
+                  <mssgle:LineSegment
+                    End="222,97" />
+                  <mssgle:CubicBezierSegment
+                    Point1="222,97"
+                    Point2="226,97"
+                    Point3="226,101" />
+                  <mssgle:LineSegment
+                    End="226,186.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Exportar tabla FIFA\FIFA Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Exportar tabla FIFA\FIFA Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
